@@ -5,7 +5,7 @@ let deck         = [];
 const tipos      = ['C','D','H','S']
 const especiales = ['A','J','Q','K']
 
-
+// Esta funcion crea un nuevo deck
 const crearDeck = ()=> {
 
 
@@ -23,7 +23,7 @@ const crearDeck = ()=> {
     
 
 
-    console.log( deck )
+    //console.log( deck )
     
     
     deck =  _.shuffle(deck)
@@ -36,5 +36,21 @@ const crearDeck = ()=> {
 
 
 crearDeck();
+
+// Esta funcion me permite tomar una nueva carta 
+
+const pedirCarta = ()=>{
+
+    if( deck.length === 0 ){
+        throw 'No hay cartas en el deck'
+    }
+
+    const carta = deck.shift();
+    
+    return carta
+}
+
+pedirCarta();
+
 
 
