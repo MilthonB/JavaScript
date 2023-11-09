@@ -11,6 +11,7 @@ let puntosJugador = 0,
 //Referencias Html
 const btnPedir = document.querySelector('#btnPedir')
 const ptnHTML = document.querySelectorAll('small')
+const jugadorCartas = document.querySelector('#Jugador-cartas')
 
 // Esta funcion crea un nuevo deck
 const crearDeck = ()=> {
@@ -81,6 +82,24 @@ btnPedir.addEventListener('click', ()=>{
     puntosJugador =  puntosJugador + valorCarta(carta)
 
     ptnHTML[0].innerHTML = puntosJugador
+
+    const cartaNueva =  document.createElement('img')
+
+    cartaNueva.src = `assets/cartas/${carta}.png`
+    cartaNueva.classList.add('carta')
+
+    jugadorCartas.append(cartaNueva)
+
+
+    if ( puntosJugador > 21 ) {
+        console.warn('Has perdido, perdedor!')
+        btnPedir.disabled = true
+    }else if( puntosJugador === 21 ){
+        console.warn('Has ganado, ganador!')
+        btnPedir.disabled  = true
+    }
+
+
 
 })
 
