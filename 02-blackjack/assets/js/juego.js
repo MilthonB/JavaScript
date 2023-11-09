@@ -9,9 +9,12 @@ let puntosJugador = 0,
     puntosComputadora = 0
 
 //Referencias Html
-const btnPedir = document.querySelector('#btnPedir')
-const ptnHTML = document.querySelectorAll('small')
-const jugadorCartas = document.querySelector('#Jugador-cartas')
+const btnPedir   = document.querySelector('#btnPedir')
+const btnDetener = document.querySelector('#btnDetener')
+
+const ptnHTML           = document.querySelectorAll('small')
+const jugadorCartas     = document.querySelector('#Jugador-cartas')
+const computadoraCarta  = document.querySelector('#Computadora-cartas')
 
 // Esta funcion crea un nuevo deck
 const crearDeck = ()=> {
@@ -74,6 +77,26 @@ const valorCarta =( carta )=>{
 }
 
 
+const turnoComputadora = ( puntosMin )=>{
+
+    do{
+        const carta = pedirCarta()
+
+        puntosComputadora = puntosComputadora + valorCarta(carta)
+
+        ptnHTML[1].innerHTML = puntosComputadora
+        const cartaNueva = document.createElement('img')
+
+        cartaNueva.src = `assets/cartas/${carta}.png`
+        cartaNueva.classList.add('carta') 
+
+        computadoraCarta.append(cartaNueva)
+
+        if( puntosMin > 21 )break;
+
+    }while( (puntosComputadora  < puntosMin ) && ( puntosMin <= 21  ))
+}
+
 // Eventos 
 btnPedir.addEventListener('click', ()=>{
 
@@ -94,14 +117,31 @@ btnPedir.addEventListener('click', ()=>{
     if ( puntosJugador > 21 ) {
         console.warn('Has perdido, perdedor!')
         btnPedir.disabled = true
+        btnDetener.disabled = true
+        turnoComputadora(puntosComputadora)
     }else if( puntosJugador === 21 ){
         console.warn('Has ganado, ganador!')
         btnPedir.disabled  = true
+        btnDetener.disabled = true
+        turnoComputadora(puntosComputadora)
     }
-
-
 
 })
 
+// Evento click  btn detener
+btnDetener.addEventListener('click', ()=>{
+    btnPedir.disabled =  true
+    btnDetener.disabled = true
+    turnoComputadora(puntosJugador)
+})
+
+
+//Evento click btn nuevo
+btnNuevo.addEventListener('click', ()=>{
+
+    btnDetener.disabled = false 
+    btnPedir.disabled = false
+
+})
 
 
