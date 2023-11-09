@@ -9,12 +9,12 @@
         puntosComputadora = 0
     
     //Referencias Html
-    const btnPedir   = document.querySelector('#btnPedir')
-    const btnDetener = document.querySelector('#btnDetener')
+    const btnPedir   = document.querySelector('#btnPedir'),
+          btnDetener = document.querySelector('#btnDetener')
     
-    const ptnHTML           = document.querySelectorAll('small')
-    const jugadorCartas     = document.querySelector('#Jugador-cartas')
-    const computadoraCarta  = document.querySelector('#Computadora-cartas')
+    const ptnHTML           = document.querySelectorAll('small'),
+          jugadorCartas     = document.querySelector('#Jugador-cartas'),
+          computadoraCarta  = document.querySelector('#Computadora-cartas')
     
     // Esta funcion crea un nuevo deck
     const crearDeck = ()=> {
@@ -32,14 +32,13 @@
             }
         }
         
-        deck =  _.shuffle(deck)
-        console.log( deck )
-    
-        return deck;
+        return  _.shuffle(deck)
+        
     }
     
-    
-    crearDeck();
+    const inicializarJuego =  () =>{
+        deck = crearDeck();
+    }
     
     // Esta funcion me permite tomar una nueva carta 
     
@@ -48,9 +47,8 @@
         if( deck.length === 0 ){
             throw 'No hay cartas en el deck'
         }
-        const carta = deck.shift();
+        return deck.shift();
         
-        return carta
     }
     
     //pedirCarta();
@@ -148,8 +146,8 @@
     //Evento click btn nuevo
     btnNuevo.addEventListener('click', ()=>{
     
-    
-        deck = crearDeck()
+        inicializarJuego()
+        //deck = crearDeck()
     
         puntosComputadora = 0
         puntosJugador     = 0
