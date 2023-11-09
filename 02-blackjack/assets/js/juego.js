@@ -19,7 +19,7 @@ const computadoraCarta  = document.querySelector('#Computadora-cartas')
 // Esta funcion crea un nuevo deck
 const crearDeck = ()=> {
 
-
+    deck = [];
     for (let i = 2; i < 10; i++) {
         for (let tipo of tipos) {
             deck.push( i + tipo )
@@ -95,7 +95,25 @@ const turnoComputadora = ( puntosMin )=>{
         if( puntosMin > 21 )break;
 
     }while( (puntosComputadora  < puntosMin ) && ( puntosMin <= 21  ))
+
+    // El ultimo turno
+
+    setTimeout(() => {
+        
+        if(  puntosComputadora === puntosMin ){
+            alert('Nadie gana, esto es un empate!')
+        }else if( (puntosMin > 21) ){
+            alert('La computadora ha ganado')
+        }else if(puntosComputadora > 21){
+            alert('El jugador ha ganado')
+        }else if(puntosMin > puntosComputadora){
+            alert('El jugador ha ganado')
+        }else if(puntosComputadora > puntosMin){
+            alert('La computadora ha ganado')
+        }
+    }, 100);
 }
+
 
 // Eventos 
 btnPedir.addEventListener('click', ()=>{
@@ -115,15 +133,15 @@ btnPedir.addEventListener('click', ()=>{
 
 
     if ( puntosJugador > 21 ) {
-        console.warn('Has perdido, perdedor!')
+        //console.warn('Has perdido, perdedor!')
         btnPedir.disabled = true
         btnDetener.disabled = true
-        turnoComputadora(puntosComputadora)
+        turnoComputadora(puntosJugador)
     }else if( puntosJugador === 21 ){
-        console.warn('Has ganado, ganador!')
+        //console.warn('Has ganado, ganador!')
         btnPedir.disabled  = true
         btnDetener.disabled = true
-        turnoComputadora(puntosComputadora)
+        turnoComputadora(puntosJugador)
     }
 
 })
@@ -139,8 +157,29 @@ btnDetener.addEventListener('click', ()=>{
 //Evento click btn nuevo
 btnNuevo.addEventListener('click', ()=>{
 
+
+    deck = crearDeck()
+
+    puntosComputadora = 0
+    puntosJugador     = 0
+
+    ptnHTML[0].innerText = 0
+    ptnHTML[1].innerText = 0
+
+
+    const imgs= document.querySelectorAll('img')
+
+    for (let i = 0; i < imgs.length; i++) {
+        imgs[i].remove();
+        
+    }
+
+
     btnDetener.disabled = false 
-    btnPedir.disabled = false
+    btnPedir.disabled   = false
+
+    
+
 
 })
 
