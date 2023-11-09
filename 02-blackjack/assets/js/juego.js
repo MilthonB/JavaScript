@@ -5,6 +5,13 @@ let deck         = [];
 const tipos      = ['C','D','H','S']
 const especiales = ['A','J','Q','K']
 
+let puntosJugador = 0,
+    puntosComputadora = 0
+
+//Referencias Html
+const btnPedir = document.querySelector('#btnPedir')
+const ptnHTML = document.querySelectorAll('small')
+
 // Esta funcion crea un nuevo deck
 const crearDeck = ()=> {
 
@@ -65,8 +72,17 @@ const valorCarta =( carta )=>{
 
 }
 
-const valor = valorCarta(pedirCarta())
 
-console.log({valor })
+// Eventos 
+btnPedir.addEventListener('click', ()=>{
+
+    const carta = pedirCarta()
+
+    puntosJugador =  puntosJugador + valorCarta(carta)
+
+    ptnHTML[0].innerHTML = puntosJugador
+
+})
+
 
 
