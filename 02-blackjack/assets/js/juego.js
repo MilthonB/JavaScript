@@ -50,7 +50,23 @@ const pedirCarta = ()=>{
     return carta
 }
 
-pedirCarta();
+//pedirCarta();
 
+const valorCarta =( carta )=>{
+
+    //Extraer el numero de la carta
+
+    const valor = carta.substring(0,carta.length -1 );
+  
+    return isNaN(valor) ? 
+        (( valor === 'A' ) ? 11 : 10) 
+        : valor * 1   
+
+
+}
+
+const valor = valorCarta(pedirCarta())
+
+console.log({valor })
 
 
