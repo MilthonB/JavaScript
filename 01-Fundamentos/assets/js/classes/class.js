@@ -5,6 +5,18 @@
 // clases
 class Persona {
 
+    //cuamtas instancias tengo
+    static _conteo = 0;
+    static get conteo() {
+        return Persona._conteo + 'instancias '
+    }
+    
+    
+    static mensaje(){
+        console.log(this.name) // Este valor sera undefined
+        console.log('Hola todos soy un metodo statico')
+    }
+
     // Siempre usa using stric
     // propiedades de clase
     nombre = '';
@@ -17,6 +29,9 @@ class Persona {
         this.codigo = codigo 
         this.frase = frase 
         console.log('Hola!');
+
+        Persona._conteo++;
+
     }
 
     // Es recomendado que solo reciba un argumento
@@ -41,5 +56,8 @@ const airesman= new Persona('Antonio estrella', 'ironman', 'Yo soy ires man');
 
 spiderman.quiensoy()
 
+
+//Persona._conteo = 2;
+console.log('Conteo estatitco', Persona.conteo)
 
 
