@@ -15,7 +15,9 @@ class Recatangulo {
     }
 
 
-
+    calArea(){
+        console.log(this.#area * 2)
+    }
 
 }
 
