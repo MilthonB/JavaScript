@@ -18,7 +18,9 @@ class Persona {
         console.log('Hola!');
     }
 
-
+    quiensoy(){
+        console.log(`Soy ${this.nombre} mi identidad es: ${this.codigo}`)
+    }
 }
 
 
@@ -26,6 +28,7 @@ class Persona {
 const spiderman= new Persona('Peter Parket', 'Spdy', 'Hola soy el sorprendente hombre que ara;a');
 const airesman= new Persona('Antonio estrella', 'ironman', 'Yo soy ires man');
 
+spiderman.quiensoy()
 
 
 
