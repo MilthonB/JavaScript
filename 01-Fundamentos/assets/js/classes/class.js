@@ -10,12 +10,23 @@ class Persona {
     nombre = '';
     codigo = '';
     frase = '';
+    comida = '';
 
     constructor( nombre='Sin nombre', codigo='Sin codigo',frase='Sin frase' ){
         this.nombre = nombre 
         this.codigo = codigo 
         this.frase = frase 
         console.log('Hola!');
+    }
+
+    // Es recomendado que solo reciba un argumento
+    set setcomidaFavorita( comida ){
+
+        this.comida = comida.toUpperCase()
+    }
+
+    get getcomidaFavorita() {
+        return this.comida;
     }
 
     quiensoy(){
