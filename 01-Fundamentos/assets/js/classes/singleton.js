@@ -9,12 +9,20 @@ class Singleton {
 
     constructor(nombre = '') {
 
-        if( Singleton.#instancia ){}
+        const a = undefined
+
+
+
+        if( !!Singleton.#instancia ){
+
+            return Singleton.#instancia;
+
+        }
 
 
         Singleton.#instancia = this;
         this.nombre = nombre
-        return this;
+        //return this;
 
     }
 
