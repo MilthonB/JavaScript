@@ -1,8 +1,6 @@
 
 import _ from 'underscore'
-import { crearDeck } from './usecases/crear-deck'
-import { pedirCarta } from './usecases/obtner-carta'
-
+import { crearDeck, pedirCarta, valorCarta } from './usecases/index'
 
 /**
  * 2C = Two of Clubs
@@ -37,13 +35,7 @@ deck = crearDeck( tipos, especiales );
 
 
 // pedirCarta();
-const valorCarta = ( carta ) => {
 
-    const valor = carta.substring(0, carta.length - 1);
-    return ( isNaN( valor ) ) ? 
-            ( valor === 'A' ) ? 11 : 10
-            : valor * 1;
-}
 
 // turno de la computadora
 const turnoComputadora = ( puntosMinimos ) => {
@@ -122,7 +114,7 @@ btnNuevo.addEventListener('click', () => {
 
     console.clear();
     deck = [];
-    deck = crearDeck();
+    deck = crearDeck( tipos, especiales );
 
     puntosJugador     = 0;
     puntosComputadora = 0;
