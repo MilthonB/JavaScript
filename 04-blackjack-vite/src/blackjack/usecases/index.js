@@ -1,3 +1,4 @@
+export { crearCartaHtml } from './crear-carta-html' 
 export { crearDeck } from  './crear-deck'
 export { pedirCarta } from './obtner-carta'
 export { turnoComputadora } from './turno-computadora'
