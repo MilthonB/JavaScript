@@ -35,28 +35,49 @@ const loadStore = () =>{
  * @param {String} description 
  */
 const addTodo = ( description ) =>{
-    throw new Erro( 'Not implemented' )
+    if( !description ) throw new Error( 'Description is required' )
+    state.todos.push( new Todo(description) )
 }
 
 const toggleTodo =  (todoId)=> {
-    throw new Erro( 'Not implemented' )
+    state.todos = state.todos.map( (todo) =>{
+        if( todo.id === todoId){
+            todo.done = !todo.done
+        }
+        return todo
+    })
+
+
 }
 
 const deleteTodo = ( todoId )=>{
-    throw new Erro( 'Not implemented' )
+    state.todos =  state.todos.filter( todo => todo.id != todoId)
 
 }
 
 const deleteCompleted = () => {
-    throw new Erro( 'Not implemented' )
+    state.todos = state.todos.filter(todo => todo.done)
 }
 
 const setFilter = ( newFilter = Filter.All )=>{
-    throw new Erro( 'Not implemented' )
+    state.filter = newFilter 
 }
 
 const getCurrentFilter = () =>{
-    throw new Erro( 'Not implemented' )
+    return state.filter;
+}
+
+const getTodos = ( filter  =  Filter.All )=>{
+
+    switch( filter ){
+        case Filter.All:
+            return [...state.todos];
+        case Filter.Completed:
+            return state.filter( todo => todo.done  )
+        case Filter.Pending:
+            return state.filter( todo => !todo.done) 
+    }
+
 }
 
 
@@ -64,6 +85,7 @@ export default {
     deleteCompleted,
     deleteTodo,
     getCurrentFilter,
+    getTodos,
     initStore,
     loadStore,
     setFilter,
