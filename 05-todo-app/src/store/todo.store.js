@@ -10,9 +10,11 @@ const Filter  = {
 const state  =  {
 
     todos: [
-        new Todo('Priedra del alma')
+         new Todo('Priedra del alma')
         ,new Todo('Priedra del infinito')
         ,new Todo('Priedra del tiempo')
+        ,new Todo('Priedra del poder')
+        ,new Todo('Priedra del realidad')
     ],
     filter: Filter.All
 
