@@ -1,6 +1,6 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { App } from './src/todo/app'   
 
-consoel.log('Hola mundo')
+console.log('Hola mundo')
+
+App('#app')
