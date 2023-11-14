@@ -84,6 +84,7 @@ const getTodos = ( filter  =  Filter.All )=>{
 
 
 export default {
+    addTodo,
     deleteCompleted,
     deleteTodo,
     getCurrentFilter,

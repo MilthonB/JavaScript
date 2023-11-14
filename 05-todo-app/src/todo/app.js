@@ -6,7 +6,8 @@ import { renderTodos } from "./usecases";
 
 
 const elementIds = {
-    TodoList: '.todo-list'
+    TodoList : '.todo-list',
+    TodoInput: '#new-todo-input'
 }
 /**
  * 
@@ -28,5 +29,26 @@ export const App = ( elementId) => {
         document.querySelector(elementId).append(app);
         displayTodo()
     })();
+
+    const newDescriptionTodo =  document.querySelector(elementIds.TodoInput);
+    const todoListUl =  document.querySelector(elementIds.TodoList);
+
+
+    newDescriptionTodo.addEventListener('keyup', (event => {
+        if( event.keyCode !== 13 ) return
+        if( event.target.value.trim().length === 0 ) return;
+
+        todoStore.addTodo(event.target.value)
+        displayTodo()
+        event.target.value = '';
+
+    }))
+
+    todoListUl.addEventListener('click', (event) => {
+        const elementuuid = event.target.closest('[data-id]');
+        todoStore.toggleTodo( elementuuid.getAttribute('data-id') )
+        displayTodo()
+    });
+
 
 }
