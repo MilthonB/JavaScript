@@ -19,10 +19,15 @@ const elementIds = {
 export const App = ( elementId) => {
 
 
+    
 
     const displayTodo = () =>{
         const todos =  todoStore.getTodos( todoStore.getCurrentFilter() )
         renderTodos(elementIds.TodoList, todos)
+
+        const todoCount =  document.querySelector(elementIds.TodoCount)
+       todoCount.innerText = todos.length
+        //todoCount.innerText = todos.length
     }
     // cuando la funcion app es llamda
     (() =>{
@@ -31,13 +36,13 @@ export const App = ( elementId) => {
         app.innerHTML = html // {{ name }}
         document.querySelector(elementId).append(app);
         displayTodo()
+        
     })();
 
     const newDescriptionTodo =  document.querySelector(elementIds.TodoInput);
     const todoListUl =  document.querySelector(elementIds.TodoList);
     const clearCompletedButtton =  document.querySelector(elementIds.TodoClear);
     const filterTodoLis =  document.querySelectorAll(elementIds.TodoFilter)
-    const todoCount =  document.querySelector(elementIds.TodoCount)
 
 
     newDescriptionTodo.addEventListener('keyup', (event => {
@@ -83,16 +88,14 @@ export const App = ( elementId) => {
                 case 'Todos':
                     todoStore.setFilter( Filter.All )
                     displayTodo()
-                    todoCount.innerText = todoStore.getTodos(  Filter.All ).length
+                    
                 break;
                 case 'Pendientes':
                     todoStore.setFilter( Filter.Pending )
-                    todoCount.innerText = todoStore.getTodos(Filter.Pending).length
                     displayTodo()
                 break;
                 case 'Completados':
                     todoStore.setFilter( Filter.Completed )
-                    todoCount.innerText = todoStore.getTodos(Filter.Completed).length
                     displayTodo()
                 break;
             }
