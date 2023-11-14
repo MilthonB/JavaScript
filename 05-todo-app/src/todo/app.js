@@ -49,6 +49,15 @@ export const App = ( elementId) => {
         todoStore.toggleTodo( elementuuid.getAttribute('data-id') )
         displayTodo()
     });
+    
+    todoListUl.addEventListener('click', (event) => {
+        const elementuuid = event.target.closest('[data-id]');
+        if( !elementuuid || event.target.className !== 'destroy')return;
+        
+        todoStore.deleteTodo(elementuuid.getAttribute('data-id'))        
+        displayTodo()
+    });
+
 
 
 }
