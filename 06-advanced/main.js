@@ -1,6 +1,7 @@
 import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
+import { envconcept } from './src/concepts/01-emviroments'
 document.querySelector('#app').innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -17,3 +18,6 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
+const elementohtml = document.querySelector('.card')
+
+envconcept( elementohtml )
