@@ -1,3 +1,4 @@
+import { heroes } from "../data/hero"
 
 
 
@@ -8,7 +9,11 @@
  */
 export  const demoComponent = (element) =>{
 
-    console.log('demoComponent')
-l 
+    console.log('demoComponent') 
+
+    // promesas 
+
+
 
 }
+
