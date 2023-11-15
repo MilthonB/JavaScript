@@ -1,3 +1,4 @@
+import { heroes } from "../data/hero"
 
 
 
@@ -10,7 +11,24 @@ export  const promisesComponent = (element) =>{
 
     console.log('promisesComponent')
 
+    const renderHero = ( hero ) =>{
 
+        element.innerHTML = hero.name
+    }
+
+    const renderError = ( error ) =>{
+
+        element.innerHTML = ` <h3> ${ error } </h3>`
+    }
+
+
+    const id1 = '5d86371f1efebc31def272e2'
+    //findHero( id1 ).then( superHero => renderHero(superHero))
+    findHero( id1 )
+        .then( renderHero )
+        //.catch(error => renderError(error))
+        .catch( renderError )
+ 
 }
 
 
