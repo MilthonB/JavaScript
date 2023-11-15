@@ -3,6 +3,7 @@ import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { callbackCompoenent } from './src/concepts/02-callbacks.js'
 import { promisesComponent } from './src/concepts/03-primise'
+import { promiseRaceComponent } from './src/concepts/04-pomise-race'
 document.querySelector('#app').innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -21,4 +22,4 @@ document.querySelector('#app').innerHTML = `
 
 const elementohtml = document.querySelector('.card')
 
-promisesComponent( elementohtml )
+promiseRaceComponent( elementohtml )
