@@ -1,5 +1,18 @@
 
 
+
+/**
+ * @returns { Object } Information
+ */
+const fetchQuote = ()=>{
+
+
+
+
+
+}
+
+
 // Sintaxis con nombre en mayuscula es porque quiero decir que es un componente y es reutilizable
 /**
  * 
@@ -11,6 +24,9 @@ export const BreakingBadApp = (element)=>{
 
     document.querySelector('#app-title').innerHTML = 'Breaking bad' 
     element.innerHTML = 'Loading...'
+
+
+
 }
 
 
