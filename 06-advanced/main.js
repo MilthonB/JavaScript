@@ -7,6 +7,7 @@ import { promiseRaceComponent } from './src/concepts/04-pomise-race'
 import { asyncComponent } from './src/concepts/05-async.'
 import { asyncAwaitComponent } from './src/concepts/06-async-await'
 import { asyncwWAIT2cOMPONENT } from './src/concepts/07-asyn-await'
+import { forAwaitComponent } from './src/concepts/08-for-await'
 document.querySelector('#app').innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -25,4 +26,4 @@ document.querySelector('#app').innerHTML = `
 
 const elementohtml = document.querySelector('.card')
 
-asyncwWAIT2cOMPONENT( elementohtml )
+forAwaitComponent( elementohtml )
