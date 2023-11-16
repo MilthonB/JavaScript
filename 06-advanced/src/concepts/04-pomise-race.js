@@ -20,7 +20,7 @@ export  const promiseRaceComponent = (element) =>{
     }
 
     Promise.race([
-        slowPromise(),
+        slowPromise(), 
         MediumPromise(),
         FastPromise()
     ])
