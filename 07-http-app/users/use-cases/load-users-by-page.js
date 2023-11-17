@@ -18,7 +18,7 @@ export const loadUserByPage = async ( page = 1 ) =>{
 
     const users =  data.map(localHostUserToModel);
 
-    console.log(users)
+    //console.log(users)
 
     return users
 }

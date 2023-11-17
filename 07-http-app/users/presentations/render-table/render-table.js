@@ -46,7 +46,7 @@ export const renderTable = (element) =>{
 
     users.forEach(  user => {
 
-        console.log(user.balance)
+        //console.log(user.balance)
         tableHTML += `
             <tr>
                 <td>${user.id}</td>
@@ -70,3 +70,4 @@ export const renderTable = (element) =>{
 
 
 }
+
