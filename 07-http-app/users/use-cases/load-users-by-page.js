@@ -1,10 +1,12 @@
+import { localHostUserToModel } from "../mappers/localhost-user.mapper";
+import { User } from "../models/user";
 
 
 
 /**
  * 
  * @param {String} page que se deseas cargar 
- * @returns {String} Data que se muesttra 
+ * @returns {Promise<User[]>} Data que se muesttra 
  */
 export const loadUserByPage = async ( page = 1 ) =>{
 
@@ -14,9 +16,11 @@ export const loadUserByPage = async ( page = 1 ) =>{
 
     const data = await res.json()
 
-    console.log(data)
+    const users =  data.map(localHostUserToModel);
 
-    return data
+    console.log(users)
+
+    return users
 }
 
 
