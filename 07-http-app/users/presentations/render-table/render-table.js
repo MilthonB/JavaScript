@@ -1,4 +1,6 @@
 import usersStore from '../../store/users-store'
+import { getUserById } from '../../use-cases/get-user-by-id';
+import { renderModal, showModal } from '../render-modal/render-modal';
 import './render-table.css'
 
 
@@ -27,6 +29,24 @@ const createTable = () =>{
 }
 
 
+const selectElementTableId =  async(event)  =>{
+    
+    const element = event.target.closest('.select-id')
+    
+    if( !element ) return
+
+    const id = element.getAttribute('data-id')
+
+    showModal(id)
+    
+
+}
+
+
+
+
+
+
 
 /**
  * 
@@ -38,8 +58,14 @@ export const renderTable = (element) =>{
 
     if( !table ){
         table =  createTable()
+        
         element.append(table)
+        table.addEventListener('click', (event)  => {
+            selectElementTableId(event)
+
+        }) 
         // TODO: Listener a las tablas 
+
     }
 
     let tableHTML = '';
@@ -55,9 +81,9 @@ export const renderTable = (element) =>{
                 <td>${user.lastName}</td>
                 <td>${user.isActive}</td>
                 <td>
-                    <a href='#' data-id=${ user.id }> Select </a>
+                    <a href='#' class="select-id" data-id=${ user.id }> Select </a>
                     |
-                    <a href='#' data-id=${ user.id }> Delete </a>
+                    <a href='#' class="delete-id" data-id=${ user.id }> Delete </a>
                 </td>
             </tr>
         `

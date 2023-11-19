@@ -19,13 +19,13 @@ export const saveUser  = async ( userLike ) =>{
     const userToSave = userModelToLocalHost(user)
 
     if(user.id){
-        throw 'No implentada la actualizacion'
-        return
+       return await updateUser(user)
+        
     }
 
-    const updateUser =  await createUser(userToSave)
+    return  await createUser(userToSave)
 
-    return updateUser
+    
 }
 
 
@@ -45,5 +45,26 @@ const createUser = async ( user ) => {
     const newUser = await res.json();
     console.log(newUser)
     return newUser
+
+}
+
+
+const updateUser = async ( user ) => {
+
+    const url = ` ${ import.meta.env.VITE_BASE_URL  }/users/${user.id}`
+    
+    console.log(url)
+    const res = await fetch(url, {
+        method: 'PATCH',
+        body: JSON.stringify(user),
+        headers: {
+            'Content-Type' : 'application/json'
+        }
+
+    })
+
+    const   updatedUser = await res.json();
+    console.log(updatedUser)
+    return updatedUser
 
 }
