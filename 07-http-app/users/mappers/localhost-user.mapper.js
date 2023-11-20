@@ -9,6 +9,7 @@ import { User } from "../models/user"
  */
 export const localHostUserToModel = ( localhostuser ) =>{
 
+
     const  {
         avatar,
         balance,

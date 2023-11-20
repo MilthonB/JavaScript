@@ -19,8 +19,6 @@ export const showModal = async( id ) =>{
 
     const user =  await getUserById( id )
 
-    console.log(user)
-
     setFormValue(user)
 
 }
@@ -84,7 +82,6 @@ export const renderModal = (element, callback )=>{
             }
             userLike[key] = value
 
-            console.log(userLike)
         }   
 
         //TODO: guardar usuario

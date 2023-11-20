@@ -1,33 +1,15 @@
 {
   "users": [
     {
-      "id": 1,
-      "isActive": true,
-      "balance": 1397.32,
-      "avatar": "http://placehold.it/32x32",
-      "first_name": "Ryan",
-      "last_name": "Kent",
-      "gender": "male",
-      "firstName": "Ryan",
-      "lastName": "Kent"
-    },
-    {
-      "id": 2,
-      "isActive": true,
-      "balance": 1120.82,
-      "avatar": "http://placehold.it/32x32",
-      "first_name": "Francine",
-      "last_name": "Ingram",
-      "gender": "female"
-    },
-    {
       "id": 3,
       "isActive": true,
-      "balance": 2010.88,
+      "balance": 242344213423,
       "avatar": "http://placehold.it/32x32",
-      "first_name": "Lee",
+      "first_name": "Leesdfsd",
       "last_name": "Howe",
-      "gender": "male"
+      "gender": "male",
+      "firstName": "Lee",
+      "lastName": "Howehjk"
     },
     {
       "id": 4,
@@ -36,7 +18,9 @@
       "avatar": "http://placehold.it/32x32",
       "first_name": "Henry",
       "last_name": "Hunt",
-      "gender": "male"
+      "gender": "male",
+      "firstName": "Henryertert",
+      "lastName": "Hunt"
     },
     {
       "id": 5,
